@@ -1,0 +1,666 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/************************* MENÚ *************************/
+
+.menu {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #414141;
+    position: fixed;
+    z-index: 10;
+}
+
+/******************* PARTE DEL MENÚ DESPLEGABLE CON MEDIA QUERYS ************************/
+
+.icono_menu img {
+    width: 70px;
+}
+
+.icono_menu, #check {
+    display: none;
+}
+
+/* MEDIA QUERY DEL MENU */
+@media (max-width:1450px) {
+    .checkbtn {
+        display: block;
+    }
+
+    .icono_menu {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 200px;
+        cursor: pointer;
+    }
+
+    .menu_izquierda ul {
+        display: block;
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        background-color: #414141;
+        width: 250px;
+        height: 100vh;
+    }
+
+    .menu_izquierda ul li {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu_izquierda ul li:first-child {
+        margin-top: 40px;
+    }
+
+    #check:checked ~ .menu_elementos .menu_izquierda ul {
+        left: -32px;
+    }
+}
+
+/***************** MEDIA QUERY DE LA LUPA ********************/
+
+.lupa_menu img {
+    width: 50px;
+}
+
+.lupa_menu, #lupa_check {
+    display: none;
+}
+
+@media (max-width:1090px) {
+    .lupa_checkbtn {
+        display: block;
+    }
+
+    .lupa_menu {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 325px;
+        cursor: pointer;
+    }
+
+    .div_buscador {
+        display: block;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        background-color: #414141;
+        width: 100%;
+        height: 50px;
+        z-index: 10;
+    }
+
+    #lupa_check:checked ~ .menu_elementos .div_buscador {
+        right: 0;
+    }
+}
+
+/************** MEDIA QUERY DE LOS BOTONES DE LOGIN Y LOGO ******************/
+
+.login_menu img {
+    width: 50px;
+}
+
+.login_menu, #login_check {
+    display: none;
+}
+
+@media (max-width:750px) {
+    .login_checkbtn {
+        display: block;
+    }
+
+    .login_menu {
+        display: block;
+        position: fixed;
+        top: 5px;
+        right: 0px;
+        cursor: pointer;
+    }
+
+    .div_perfil {
+        display: block;
+        position: fixed;
+        top: 60px;
+        right: -200%;
+        background-color: #414141;
+        width: 350px;
+        height: 120px;
+    }
+
+    .btn_iniciarSesion, .btn_registrarse {
+        width: 50%;
+        margin: 70px 10px 0 10px;
+    }
+
+    .lupa_menu {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 70px;
+        cursor: pointer;
+    }
+
+    .nexus_logo {
+        display: block;
+        position: fixed;
+        left: -100%;
+    }
+
+    .icono_menu {
+        left: 0;
+    }
+
+    #login_check:checked ~ .menu_elementos .div_perfil {
+        right: -16px;
+    }
+}
+
+.menu_elementos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_izquierda {
+    display: flex;
+    align-items: center;
+}
+
+.nexus_logo {
+    width: 10em;
+}
+
+.navbar_lista {
+    display: flex;
+    list-style: none;
+    margin-left: 2rem;
+}
+
+.lista_link {
+    text-decoration: none;
+    color: white;
+    font-size: 130%;
+    font-weight: 600;
+    padding: 5px 25px;
+}
+
+.lista_link:hover {
+    cursor: pointer;
+    background-color: #646464;
+}
+
+.div_buscador {
+    display: flex;
+    justify-content: center;
+}
+
+.buscador {
+    width: 350px;
+    height: 35px;
+    background-color: #1d1d1d;
+    border: 2px solid #646464;
+    color: white;
+    border-radius: 5px;
+}
+
+.div_perfil {
+    display: flex;
+    margin-right: 1rem;
+}
+
+.btn_iniciarSesion {
+    height: 35px;
+    margin-right: 20px;
+    background-color: #1d1d1d;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn_iniciarSesion:hover {
+    background-color: #252525;
+}
+
+.btn_registrarse {
+    height: 35px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn_registrarse:hover {
+    background-color: #ff3d3d;
+}
+
+
+/********************** SIDEBAR *********************/
+
+.sidebar {
+    width: 277px;
+    height: 100%;
+    background-color: #252525;
+    margin-top: 59px;
+    color: white;
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:1200px) {
+    .sidebar {
+        width: 3.75em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar_titulo {
+        position: fixed;
+        left: -100%;
+    }
+
+    .sidebar_nombreCanal, .sidebar_espectadores {
+        position: fixed;
+        left: -100%;
+    }
+}
+
+.sidebar_titulo {
+    margin: 20px 0 20px 5px;
+    font-weight: bold;
+    font-size: 600;
+}
+
+.sidebar_btn_canal {
+    width: 100%;
+    background-color: #252525;
+    color: white;
+    border: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar_btn_canal:hover {
+    cursor: pointer;
+    background-color: #303030;
+}
+
+.sidebar_canal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar_imgCanal {
+    width: 35px;
+    border-radius: 50%;
+}
+
+.sidebar_nombreCanal {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_nomCanal {
+    font-weight: 700;
+    font-size: 120%;
+
+    display: flex;
+}
+
+.sidebar_categoria {
+    width: 100px;
+    color: rgb(153, 153, 153);
+    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.sidebar_espectadores {
+    font-size: 110%;
+    margin-right: 10px;
+}
+
+
+/***************** CONTENIDO *****************/
+
+.contenido {
+    width: 85.45%;
+    /*width: 78%;*/
+    background-color: #1a1a1a;
+    color: white;
+    position: absolute;
+    left: 277px;
+    margin-top: 30px;
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:1260px) {
+
+    .contenido {
+        width: 78%;
+    }
+}
+
+@media (max-width:1200px) {
+
+    .contenido {
+        width: 94.9%;
+        left: 3.75em;
+    }
+}
+
+.container_btns_grupos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.btn_crear_grupo {
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    font-size: 150%;
+    font-weight: 700;
+    margin-right: 10%;
+}
+
+.btn_crear_grupo:hover {
+    cursor: pointer;
+    background-color: #a50000;
+}
+
+.btn_unirse_grupo {
+    border: none;
+    border-radius: 5px;
+    background-color: #303030;
+    color: white;
+    padding: 10px;
+    font-size: 150%;
+    font-weight: 700;
+}
+
+.btn_unirse_grupo:hover {
+    cursor: pointer;
+    background-color: #414141;
+}
+
+
+.seccion_titulo {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 150%;
+}
+
+/*************** CLANES Y EQUIPOS *****************/
+
+.logo_clan {
+    width: 10em;
+    border-radius: 50%;
+}
+
+.clan_titulo_seguidores {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clan_titulo {
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.clan_seguidores {
+    color: rgb(153, 153, 153);
+    font-size: 90%;
+}
+
+hr {
+    margin: 40px 0;
+}
+
+
+/************************* GRUPOS DE CADA JUEGO *************************/
+
+.contenido_seccion_categorias {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    overflow-x: scroll;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: column;
+    /*margin-bottom: 40px;*/
+}
+
+.seccion_categoria {
+    display: flex;
+    justify-content: center;
+}
+
+.contenido_imgCategoria {
+    width: 100%;
+}
+
+.seccion_categoria_nombre {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.categoria_titulo {
+    width: 10em;
+    margin-top: 5px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.categoria_grupos {
+    color: rgb(153, 153, 153);
+    font-size: 90%;
+}
+
+
+/************************* COMUNIDADES REGIONALES *************************/
+
+.container_regiones {
+    background-color: #101010;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion_regiones {
+    display: grid;
+    grid-template-columns: 10% 40% 40% 10%;
+    padding: 20px;
+}
+
+.seccion_regiones:hover {
+    background-color: #1a1a1a;
+}
+
+.contenido_imgRegion {
+    width: 3em;
+    height: 2em;
+}
+
+.regiones {
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+}
+
+.regiones_grupos {
+    color: rgb(153, 153, 153);
+    font-size: 90%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.btn_ver_region {
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.btn_ver_region:hover {
+    cursor: pointer;
+    background-color: #a50000;
+}
+
+@media(max-width: 1326px) {
+    .btn_ver_region {
+        width: 96px;
+    }
+}
+
+@media(max-width:1000px) {
+    .contenido_seccion_categorias {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+    }
+
+    .seccion_regiones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenido_imgTorneo, .contenido_imgRegion, .regiones, .regiones_grupos {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .btn_ver_region {
+        width: 150px;
+    }
+}
+
+@media(max-width:617px) {
+    .contenido_seccion_categorias {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:460px) {
+    .contenido_seccion_categorias {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/************************* FOOTER *************************/
+
+footer {
+    background-image: url(../img/fondo_contacto.jpg);
+    background-size: cover;
+}
+
+footer div {
+    width: 100%;
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer h1 {
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.contacto {
+    text-decoration: none;
+    color: white;
+    padding: 0 30px;
+}
+
+.contacto:hover {
+    color: red;
+}
+
+.tel {
+    width: 2em;
+    margin-right: 5px;
+}
+
+.email {
+    width: 2em;
+    margin-right: 5px;
+}
+
+footer p {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+footer b {
+    color: red;
+}
+
+@media(max-width: 401px) {
+    footer ul {
+        flex-direction: column;
+    }
+
+    footer ul li:first-child {
+        margin-bottom: 20px;
+    }
+
+    footer p {
+        text-align: center;
+    }
+}

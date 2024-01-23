@@ -1,0 +1,846 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/************************** MENÚ **************************/
+
+.menu {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #414141;
+    position: fixed;
+    z-index: 10;
+}
+
+/************************** PARTE DEL MENÚ DESPLEGABLE CON MEDIA QUERYS **************************/
+
+.icono_menu img {
+    width: 70px;
+}
+
+.icono_menu, #check {
+    display: none;
+}
+
+/************************** MEDIA QUERY DEL MENU **************************/
+@media (max-width:1450px) {
+    .checkbtn {
+        display: block;
+    }
+
+    .icono_menu {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 200px;
+        cursor: pointer;
+    }
+
+    .menu_izquierda ul {
+        display: block;
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        background-color: #414141;
+        width: 250px;
+        height: 100vh;
+    }
+
+    .menu_izquierda ul li {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu_izquierda ul li:first-child {
+        margin-top: 40px;
+    }
+
+    #check:checked ~ .menu_elementos .menu_izquierda ul {
+        left: -32px;
+    }
+}
+
+/************************** MEDIA QUERY DE LA LUPA **************************/
+
+.lupa_menu img {
+    width: 50px;
+}
+
+.lupa_menu, #lupa_check {
+    display: none;
+}
+
+@media (max-width:1090px) {
+    .lupa_checkbtn {
+        display: block;
+    }
+
+    .lupa_menu {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 325px;
+        cursor: pointer;
+    }
+
+    .div_buscador {
+        display: block;
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        background-color: #414141;
+        width: 100%;
+        height: 50px;
+        z-index: 10;
+    }
+
+    #lupa_check:checked ~ .menu_elementos .div_buscador {
+        right: 0;
+    }
+}
+
+/************************** MEDIA QUERY DE LOS BOTONES DE LOGIN Y LOGO **************************/
+.login_menu img {
+    width: 50px;
+}
+
+.login_menu, #login_check {
+    display: none;
+}
+
+@media (max-width:750px) {
+    .login_checkbtn {
+        display: block;
+    }
+
+    .login_menu {
+        display: block;
+        position: fixed;
+        top: 5px;
+        right: 0px;
+        cursor: pointer;
+    }
+
+    .div_perfil {
+        display: block;
+        position: fixed;
+        top: 60px;
+        right: -200%;
+        background-color: #414141;
+        width: 350px;
+        height: 120px;
+    }
+
+    .btn_iniciarSesion, .btn_registrarse {
+        width: 50%;
+        margin: 70px 10px 0 10px;
+    }
+
+    .lupa_menu {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 70px;
+        cursor: pointer;
+    }
+
+    .nexus_logo {
+        display: block;
+        position: fixed;
+        left: -100%;
+    }
+
+    .icono_menu {
+        left: 0;
+    }
+
+    #login_check:checked ~ .menu_elementos .div_perfil {
+        right: -16px;
+    }
+}
+
+.menu_elementos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_izquierda {
+    display: flex;
+    align-items: center;
+}
+
+.nexus_logo {
+    width: 10em;
+}
+
+.navbar_lista {
+    display: flex;
+    list-style: none;
+    margin-left: 2rem;
+}
+
+.lista_link {
+    text-decoration: none;
+    color: white;
+    font-size: 130%;
+    font-weight: 600;
+    padding: 5px 25px;
+}
+
+.lista_link:hover {
+    cursor: pointer;
+    background-color: #646464;
+}
+
+.div_buscador {
+    display: flex;
+    justify-content: center;
+}
+
+.buscador {
+    width: 350px;
+    height: 35px;
+    background-color: #1d1d1d;
+    border: 2px solid #646464;
+    color: white;
+    border-radius: 5px;
+}
+
+.div_perfil {
+    display: flex;
+    margin-right: 1rem;
+}
+
+.btn_iniciarSesion {
+    height: 35px;
+    margin-right: 20px;
+    background-color: #1d1d1d;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn_iniciarSesion:hover {
+    background-color: #252525;
+}
+
+.btn_registrarse {
+    height: 35px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: large;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn_registrarse:hover {
+    background-color: #ff3d3d;
+}
+
+
+/************************** SIDEBAR **************************/
+
+.sidebar {
+    width: 277px;
+    height: 100%;
+    background-color: #252525;
+    margin-top: 59px;
+    color: white;
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:1200px) {
+    .sidebar {
+        width: 3.75em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar_titulo {
+        position: fixed;
+        left: -100%;
+    }
+
+    .sidebar_nombreCanal, .sidebar_espectadores {
+        position: fixed;
+        left: -100%;
+    }
+}
+
+.sidebar_titulo {
+    margin: 20px 0 20px 5px;
+    font-weight: bold;
+    font-size: 600;
+}
+
+.sidebar_btn_canal {
+    width: 100%;
+    background-color: #252525;
+    color: white;
+    border: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar_btn_canal:hover {
+    cursor: pointer;
+    background-color: #303030;
+}
+
+.sidebar_canal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar_imgCanal {
+    width: 35px;
+    border-radius: 50%;
+}
+
+.sidebar_nombreCanal {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_nomCanal {
+    font-weight: 700;
+    font-size: 120%;
+
+    display: flex;
+}
+
+.sidebar_categoria {
+    width: 100px;
+    color: rgb(153, 153, 153);
+    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.sidebar_espectadores {
+    font-size: 110%;
+    margin-right: 10px;
+}
+
+
+/************************** CONTENIDO **************************/
+
+.contenido {
+    width: calc(100% - 39.8rem);
+    background-color: #1a1a1a;
+    position: absolute;
+    left: 277px;
+    margin-top: 60px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:1200px) {
+    .contenido {
+        width: calc(100% - 26.28rem);
+        left: 3.75em;
+    }
+}
+
+@media (max-width:495px) {
+    .contenido {
+        width: 94%;
+    }
+}
+
+/************************** DIRECTO **************************/
+
+.directo {
+    width: 100%;
+}
+
+
+/************************** INFO STREAM **************************/
+
+.container_info_stream {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 10px;
+}
+
+.div1_info_stream {
+    display: flex;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.img_canal {
+    width: 90px;
+    border: 5px red;
+    border-radius: 50%;
+}
+
+.info_stream {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.nombre_canal {
+    font-weight: 800;
+    font-size: 130%;
+}
+
+.titulo_stream {
+    font-weight: 600;
+    text-wrap: wrap;
+}
+
+.categoria_stream {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.categoria_link {
+    color: red;
+    text-decoration: none;
+    font-size: 90%;
+    margin-right: 5px;
+}
+
+.categoria_link:hover {
+    color: rgb(204, 0, 0);
+}
+
+.etiquetas {
+    background-color: #252525;
+    color: #a09f9f;
+    border-radius: 10px;
+    font-size: 80%;
+    font-weight: 600;
+    padding: 4px;
+    margin-right: 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+.etiquetas:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.div2_info_stream {
+    display: flex;
+    flex-direction: column;
+    height: 3rem;
+}
+
+.btn_info_stream_seguir {
+    height: 2rem;
+    padding: 6px 8px;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.btn_info_stream_seguir:hover {
+    background-color: rgb(179, 0, 0);
+    cursor: pointer;
+}
+
+.div_btn_seguir {
+    display: flex;
+    justify-content: center;
+}
+
+.div_texto_seguir {
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.btn_info_stream_sub {
+    height: 2rem;
+    padding: 6px 8px;
+    background-color: #303030;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.btn_info_stream_sub:hover {
+    background-color: #282828;
+    cursor: pointer;
+}
+
+.espectadores_directo {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.svg_espectadores {
+    fill: red;
+}
+
+.num_espectadores {
+    color: red;
+    font-weight: 700;
+    font-size: 95%;
+    padding-right: 10px;
+    align-self: center;
+}
+
+.espectadores {
+    color: #a09f9f;
+    padding-right: 10px;
+}
+
+@media(max-width: 1440px) {
+    .container_info_stream {
+        flex-direction: column;
+    }
+
+    .div2_info_stream {
+        margin: 20px 0;
+    }
+}
+
+@media(max-width: 530px) {
+    .img_canal {
+        width: 70px;
+    }
+
+    .nombre_canal {
+        font-size: 120%;
+    }
+
+    .titulo_stream {
+        font-size: 95%;
+    }
+}
+
+
+/************************** INFO CANAL **************************/
+
+.info_canal {
+    background-color: #252525;
+    color: white;
+    width: 98%;
+    margin: 10px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 1300px) {
+    .info_canal {
+        width: 97%;
+    }
+}
+
+@media(max-width: 500px) {
+    .info_canal {
+        width: 96%;
+    }
+}
+
+@media(max-width: 437px) {
+    .info_canal {
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 315px) {
+    .info_canal {
+        margin-top: 80px;
+    }
+}
+
+.descrip_canal {
+    display: flex;
+    flex-direction: column;
+}
+
+.sobre_canal {
+    font-weight: 700;
+    font-size: 130%;
+    margin-bottom: 15px;
+}
+
+.seguidores {
+    font-weight: 700;
+    font-size: 95%;
+    margin-bottom: 15px;
+}
+
+.descrip {
+    font-size: 95%;
+}
+
+.redes_canal {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5em;
+}
+
+@media(max-width: 800px) {
+    .info_canal {
+        flex-direction: column;
+    }
+
+    .redes_canal {
+        flex-direction: row;
+        margin-top: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+.redes_link {
+    text-decoration: none;
+    color: #a09f9f;
+    font-size: 90%;
+    font-weight: 600;
+    padding: 3px;
+    display: flex;
+}
+
+.redes_icono {
+    margin-right: 5px;
+}
+
+
+.redes_link:hover {
+    .redes_icono {
+        color: white;
+    }
+
+    .red {
+        color: red;
+    }
+}
+
+
+.paneles {
+    background-color: #1a1a1a;
+}
+
+.paneles img {
+    width: 30%;
+    margin: 10px 0 40px 20px;
+}
+
+
+
+/************************** FOOTER **************************/
+
+footer {
+    background-image: url(../img/fondo_contacto.jpg);
+    background-size: cover;
+    color: white;
+}
+
+footer div {
+    width: 100%;
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer h1 {
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.contacto {
+    text-decoration: none;
+    color: white;
+    padding: 0 30px;
+}
+
+.contacto:hover {
+    color: red;
+}
+
+.tel {
+    width: 2em;
+    margin-right: 5px;
+}
+
+.email {
+    width: 2em;
+    margin-right: 5px;
+}
+
+footer p {
+    margin-top: 100px;
+    padding: 20px;
+}
+
+footer b {
+    color: red;
+}
+
+@media(max-width: 401px) {
+    footer ul {
+        flex-direction: column;
+    }
+
+    footer ul li:first-child {
+        margin-bottom: 20px;
+    }
+
+    footer p {
+        text-align: center;
+    }
+}
+
+
+
+/************************** CHAT **************************/
+
+.container_chat {
+    width: 22.5rem;
+    height: 100%;
+    background-color: #252525;
+    position: fixed;
+    right: 0;
+    margin-top: 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media(max-width: 1100px) {
+    .container_chat {
+        display: none;
+    }
+
+    .contenido {
+        width: 94.5%;
+    }
+}
+
+.chat_titulo {
+    background-color: #303030;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.chat {
+    color: white;
+    font-size: 80%;
+    height: 100%;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.chat span {
+    padding: 5px;
+}
+
+.rojo {
+    color: red;
+}
+
+.verde {
+    color: green;
+}
+
+.azul {
+    color: blue;
+}
+
+.interaccion_chat {
+    background-color: #303030;
+    color: white;
+    padding: 10px;
+    margin-bottom: 6vh;
+}
+
+.container_emojis {
+    display: flex;
+    justify-content: space-around;
+}
+
+.emoji {
+    background-color: #414141;
+    border-radius: 5px;
+    font-size: 80%;
+    padding: 5px;
+    
+}
+
+.emoji:hover {
+    cursor: pointer;
+    background-color: #282828;
+}
+
+.container_enviar_mensaje {
+    margin: 10px 0;
+}
+
+.input_enviar_mensaje {
+    border: none;
+    border-radius: 5px;
+    background-color: #252525;
+    color: white;
+    width: 100%;
+    height: 45px;
+}
+
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_enviar_mensaje {
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    padding: 5px;
+    font-weight: 600;
+}
+
+.btn_enviar_mensaje:hover {
+    background-color: rgb(179, 0, 0);
+    cursor: pointer;
+}
