@@ -425,7 +425,7 @@
 
 .contenido_seccion {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .seccion {
