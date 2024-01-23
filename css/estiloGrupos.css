@@ -458,7 +458,7 @@ hr {
     flex-direction: row;
     gap: 10px;
     justify-content: space-between;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .seccion {
