@@ -339,6 +339,7 @@
     overflow: hidden;
     text-wrap: nowrap;
     text-align: left;
+    white-space: nowrap;
 }
 
 .sidebar_espectadores {
